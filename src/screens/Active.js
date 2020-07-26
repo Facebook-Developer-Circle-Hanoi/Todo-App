@@ -17,14 +17,18 @@ export default Active = () => {
 const ActiveScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
 
-  fetch(`https://getinsvn.com/api/todo/read-all.php?s=Active`)
-  .then(async response => {
-    const data = await response.json();
-    setData(data);
-  })
-  .catch(error => {
-    console.log(error);
-  })
+  const getData = () => {
+    fetch(`https://getinsvn.com/api/todo/read-all.php?s=Active`)
+    .then(async response => {
+      const data = await response.json();
+      setData(data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+  getData();
 
   return (
     <View style={styles.container}>

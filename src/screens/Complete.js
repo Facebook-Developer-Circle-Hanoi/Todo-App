@@ -17,19 +17,23 @@ export default Complete = () => {
 const CompleteScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
 
-  fetch(`https://getinsvn.com/api/todo/read-all.php?s=Done`)
-  .then(async response => {
-    const data = await response.json();
-    setData(data);
-  })
-  .catch(error => {
-    console.log(error);
-  })
+  const getData = () => {
+    fetch(`https://getinsvn.com/api/todo/read-all.php?s=Done`)
+    .then(async response => {
+      const data = await response.json();
+      setData(data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+  getData();
 
   return (
-  <View style={styles.container}>
-    <TodoList data={data} navigation={navigation}></TodoList>
-  </View>
+    <View style={styles.container}>
+      <TodoList data={data} navigation={navigation}></TodoList>
+    </View>
   )
 }
 

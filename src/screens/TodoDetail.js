@@ -32,7 +32,7 @@ export default TodoDetail = (props) => {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.status}>{`${data.serial}. ${data.status}`}</Text>
+        <Text style={styles.status}>{`${data.status}`}</Text>
         <Text style={styles.content}>{data.body}</Text>
         <TodoButton content={data.status == 'Done' ? 'Active' : 'Done'} onPress={() => update()}></TodoButton>
       </View>

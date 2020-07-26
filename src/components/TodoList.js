@@ -18,7 +18,7 @@ export default class TodoList extends Component {
                     }
                     return(
                         <TouchableOpacity onPress={() => {this.props.navigation.navigate('TodoDetailScreen', {data: item})}} style={[styles.todo, status]}>
-                            <Text style={styles.todoContent}>{`${item.serial}. ${item.body}`}</Text>
+                            <Text style={styles.todoContent}>{item.body}</Text>
                         </TouchableOpacity>
                     )
                 }}
